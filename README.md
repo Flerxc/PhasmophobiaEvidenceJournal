@@ -19,7 +19,7 @@ Au lancement de l'application, le joueur se trouve devant une fenêtre séparée
 2. À droite, la liste des types de fantômes actuellement possibles
 
 
-![Fenêtre principale de l'application](img/img1.png "Fenêtre principale")
+![Fenêtre principale de l'application]([img/img1.png](https://github.com/FrancisLerxc/PhasmophobiaEvidenceJournal/blob/main/img/img1.PNG) "Fenêtre principale")
 
 Un simple clic de souris permet de choisir les indices actuellement trouvés dans le jeu. La liste de fantômes possibles se met à jour automatiquement. Si le joueur fait une erreur et choisi le mauvais indice, il peut recliquer sur le bouton pour désélectionner  l'indice.
 
