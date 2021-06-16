@@ -156,7 +156,7 @@ public class Constants {
 	 * LEFT PANEL DIMENSIONS *
 	 *************************/
 	public static final Dimension bigRigidAreaDim = new Dimension(125, 5);
-	public static final Dimension smallRigidAreaFim = new Dimension(0, 5);
+	public static final Dimension smallRigidAreaDim = new Dimension(0, 5);
 	
 	
 	/****************
@@ -185,7 +185,7 @@ public class Constants {
 	/***************
 	 * BUTTON SIZE *
 	 ***************/
-	public static final Dimension BUTTON_SIZE = new Dimension(150, 75);
+	public static final Dimension BUTTON_SIZE = new Dimension(175, 75);
 	
 	
 }
