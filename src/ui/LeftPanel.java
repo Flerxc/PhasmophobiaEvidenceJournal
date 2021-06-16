@@ -66,19 +66,19 @@ public class LeftPanel extends JPanel{
 	private void addButtons() {
 		
 		add(btnEMF);
-		add(Box.createRigidArea(Constants.smallRigidAreaFim));
+		add(Box.createRigidArea(Constants.smallRigidAreaDim));
 		
 		add(btnFingerprints);
-		add(Box.createRigidArea(Constants.smallRigidAreaFim));
+		add(Box.createRigidArea(Constants.smallRigidAreaDim));
 		
 		add(btnFreezing);
-		add(Box.createRigidArea(Constants.smallRigidAreaFim));
+		add(Box.createRigidArea(Constants.smallRigidAreaDim));
 		
 		add(btnOrb);
-		add(Box.createRigidArea(Constants.smallRigidAreaFim));
+		add(Box.createRigidArea(Constants.smallRigidAreaDim));
 		
 		add(btnWriting);
-		add(Box.createRigidArea(Constants.smallRigidAreaFim));
+		add(Box.createRigidArea(Constants.smallRigidAreaDim));
 		
 		add(btnBox);
 	}
