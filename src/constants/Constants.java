@@ -142,12 +142,11 @@ public class Constants {
 			new ArrayList<>(Arrays.asList(EMF, WRITING, BOX)), 
 			ONI_ID, ONI_TEXT);
 	public static final Ghost YOKAI = new Ghost(
-			new ArrayList<>(Arrays.asList(FINGERPRINTS, ORB, WRITING)), 
+			new ArrayList<>(Arrays.asList(ORB, WRITING, BOX)), 
 			YOKAI_ID, YOKAI_TEXT);
 	public static final Ghost HANTU = new Ghost(
-			new ArrayList<>(Arrays.asList(ORB, WRITING, BOX)), 
+			new ArrayList<>(Arrays.asList(FINGERPRINTS, ORB, WRITING)), 
 			HANTU_ID, HANTU_TEXT);
-			
 	public static final ArrayList<Ghost> ALL_GHOSTS = new ArrayList<>(
 			Arrays.asList(SPIRIT, WRAITH, PHANTOM, POLTERGEIST, 
 					      BANSHEE, JINN, MARE, REVENANT, SHADE, 
