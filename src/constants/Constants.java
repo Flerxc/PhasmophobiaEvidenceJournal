@@ -13,7 +13,7 @@ import data.Ghost;
 /**
  * Class containing various constants
  * @author Francis Leroux-Contant
- * @version 2021-05-22
+ * @version 2021-08-17
  */
 public class Constants {
 
@@ -155,17 +155,20 @@ public class Constants {
 	/*************************
 	 * LEFT PANEL DIMENSIONS *
 	 *************************/
-	public static final Dimension bigRigidAreaDim = new Dimension(125, 5);
-	public static final Dimension smallRigidAreaDim = new Dimension(0, 5);
+	public static final Dimension BIG_RIGID_AREA_DIM = new Dimension(125, 5);
+	public static final Dimension SMALL_RIGID_AREA_DIM = new Dimension(0, 5);
 	
 	
 	/****************
 	 * SCREEN SIZES *
 	 ****************/
-	public static Dimension screenSize = 
+	public static final Dimension ACTUAL_SCREEN_SIZE = 
 									Toolkit.getDefaultToolkit().getScreenSize();
 
-	public static Dimension maxSize = new Dimension(550, 500);
+	public static final Dimension MAX_SCREEN_SIZE = new Dimension(550, 600);
+	public static final Dimension TOP_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.75));
+	public static final Dimension BOT_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.25));
+	public static final Dimension WRONG_GHOST_FRAME_SIZE = new Dimension(180, 125);
 	
 	/*****************
 	 * BUTTON STATES *

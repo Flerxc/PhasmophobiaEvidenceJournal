@@ -1,13 +1,11 @@
 package ui;
 
-import java.awt.GridLayout;
-
 import javax.swing.JPanel;
 
 /**
- * Main panel containing a left side (buttons) and a right side (text)
+ * Main panel containing a top panel and a bottom panel
  * @author Francis Leroux-Contant
- * @version 2021-03-19
+ * @version 2021-08-19
  */
 public class MyPanel extends JPanel{
 
@@ -15,8 +13,8 @@ public class MyPanel extends JPanel{
 	 * ATTRIBUTES *
 	 **************/
 	
-	private JPanel btnPanel;
-	private JPanel infoPanel;
+	private JPanel topPanel;
+	private JPanel bottomPanel;
 	
 	/**
 	 * Default constructor
@@ -24,13 +22,12 @@ public class MyPanel extends JPanel{
 	public MyPanel() {
 		
 		super();
-		
-		btnPanel = new LeftPanel();
-		infoPanel = new RightPanel();
-		
-		setLayout(new GridLayout(1, 2));
-		
-		add(btnPanel);
-		add(infoPanel);
+
+		topPanel = new TopPanel();
+
+		bottomPanel = new BottomPanel();
+
+		add(topPanel);
+		add(bottomPanel);
 	}	
 }

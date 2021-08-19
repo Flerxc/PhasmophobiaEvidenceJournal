@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import constants.Constants;
 
 /**
- * Left panel containing all the buttons
+ * Left panel containing all the evidence buttons
  * @author Francis Leroux-Contant
  * @version 2021-05-22
  */
@@ -35,7 +35,7 @@ public class LeftPanel extends JPanel{
 		initButtons();
 
 		// Adds a rigid area to the panel to center the buttons
-		add(Box.createRigidArea(Constants.bigRigidAreaDim));
+		add(Box.createRigidArea(Constants.BIG_RIGID_AREA_DIM));
 		
 		// Adds the button to the panel
 		addButtons();
@@ -66,19 +66,19 @@ public class LeftPanel extends JPanel{
 	private void addButtons() {
 		
 		add(btnEMF);
-		add(Box.createRigidArea(Constants.smallRigidAreaDim));
+		add(Box.createRigidArea(Constants.SMALL_RIGID_AREA_DIM));
 		
 		add(btnFingerprints);
-		add(Box.createRigidArea(Constants.smallRigidAreaDim));
+		add(Box.createRigidArea(Constants.SMALL_RIGID_AREA_DIM));
 		
 		add(btnFreezing);
-		add(Box.createRigidArea(Constants.smallRigidAreaDim));
+		add(Box.createRigidArea(Constants.SMALL_RIGID_AREA_DIM));
 		
 		add(btnOrb);
-		add(Box.createRigidArea(Constants.smallRigidAreaDim));
+		add(Box.createRigidArea(Constants.SMALL_RIGID_AREA_DIM));
 		
 		add(btnWriting);
-		add(Box.createRigidArea(Constants.smallRigidAreaDim));
+		add(Box.createRigidArea(Constants.SMALL_RIGID_AREA_DIM));
 		
 		add(btnBox);
 	}
