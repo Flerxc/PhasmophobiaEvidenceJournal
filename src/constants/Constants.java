@@ -13,7 +13,7 @@ import data.Ghost;
 /**
  * Class containing various constants
  * @author Francis Leroux-Contant
- * @version 2021-08-17
+ * @version 2021-08-26
  */
 public class Constants {
 
@@ -47,6 +47,9 @@ public class Constants {
 	public static final String ONI_TEXT = "Oni";
 	public static final String YOKAI_TEXT = "Yokai";
 	public static final String HANTU_TEXT = "Hantu";
+	public static final String GORYO_TEXT = "Goryo";
+	public static final String MYLING_TEXT = "Myling";
+	
 	
 	/*************
 	 * GHOST IDs *
@@ -65,6 +68,8 @@ public class Constants {
 	public static final int ONI_ID = 12;
 	public static final int YOKAI_ID = 13;
 	public static final int HANTU_ID = 14;
+	public static final int GORYO_ID = 15;
+	public static final int MYLING_ID = 16;
 	
 	/******************
 	 * EVIDENCE TYPES *
@@ -75,6 +80,7 @@ public class Constants {
 	public static final String ORB_TEXT = "Ghost Orb";
 	public static final String WRITING_TEXT = "Ghost Writing";
 	public static final String BOX_TEXT = "Spirit Box";
+	public static final String DOTS_TEXT = "D.O.T.S Projector";
 	
 	/****************
 	 * EVIDENCE IDs *
@@ -85,6 +91,7 @@ public class Constants {
 	public static final int ORB_ID = 4;
 	public static final int WRITING_ID = 5;
 	public static final int BOX_ID = 6;
+	public static final int DOTS_ID = 7;
 	
 	/*************
 	 * EVIDENCES *
@@ -98,59 +105,69 @@ public class Constants {
 	public static final Evidence WRITING = new Evidence(WRITING_ID, 
 														WRITING_TEXT);
 	public static final Evidence BOX = new Evidence(BOX_ID, BOX_TEXT);
+	public static final Evidence DOTS = new Evidence(DOTS_ID, DOTS_TEXT);
 	
 	public static final ArrayList<Evidence> ALL_EVIDENCES = new ArrayList<>(
-			Arrays.asList(EMF, FINGERPRINTS, FREEZING, ORB, WRITING, BOX));
+			Arrays.asList(EMF, FINGERPRINTS, FREEZING, ORB, WRITING, BOX, DOTS));
 	
 	/**************
 	 * GHOST LIST *
 	 **************/
 	public static final Ghost SPIRIT = new Ghost(
-			new ArrayList<>(Arrays.asList(FINGERPRINTS, WRITING, BOX)), 
+			new ArrayList<>(Arrays.asList(EMF, WRITING, BOX)), 
 			SPIRIT_ID, SPIRIT_TEXT);
 	public static final Ghost WRAITH = new Ghost(
-			new ArrayList<>(Arrays.asList(FINGERPRINTS, FREEZING, BOX)), 
+			new ArrayList<>(Arrays.asList(EMF, BOX, DOTS)), 
 			WRAITH_ID, WRAITH_TEXT);
 	public static final Ghost PHANTOM = new Ghost(
-			new ArrayList<>(Arrays.asList(EMF, FREEZING, ORB)), 
+			new ArrayList<>(Arrays.asList(FINGERPRINTS, BOX, DOTS)), 
 			PHANTOM_ID, PHANTOM_TEXT);
 	public static final Ghost POLTERGEIST = new Ghost(
-			new ArrayList<>(Arrays.asList(FINGERPRINTS, ORB, BOX)), 
+			new ArrayList<>(Arrays.asList(FINGERPRINTS, WRITING, BOX)), 
 			POLTERGEIST_ID, POLTERGEIST_TEXT);
 	public static final Ghost BANSHEE = new Ghost(
-			new ArrayList<>(Arrays.asList(EMF, FINGERPRINTS, FREEZING)), 
+			new ArrayList<>(Arrays.asList(FINGERPRINTS, ORB, DOTS)), 
 			BANSHEE_ID, BANSHEE_TEXT);
 	public static final Ghost JINN = new Ghost(
-			new ArrayList<>(Arrays.asList(EMF, ORB, BOX)), 
+			new ArrayList<>(Arrays.asList(EMF, FINGERPRINTS, FREEZING)), 
 			JINN_ID, JINN_TEXT);
 	public static final Ghost MARE = new Ghost(
-			new ArrayList<>(Arrays.asList(FREEZING, ORB, BOX)), 
+			new ArrayList<>(Arrays.asList(ORB, WRITING, BOX)), 
 			MARE_ID, MARE_TEXT);
 	public static final Ghost REVENANT = new Ghost(
-			new ArrayList<>(Arrays.asList(EMF, FINGERPRINTS, WRITING)), 
+			new ArrayList<>(Arrays.asList(FREEZING, ORB, WRITING)), 
 			REVENANT_ID, REVENANT_TEXT);
 	public static final Ghost SHADE = new Ghost(
-			new ArrayList<>(Arrays.asList(EMF, ORB, WRITING)), 
+			new ArrayList<>(Arrays.asList(EMF, FREEZING, WRITING)), 
 			SHADE_ID, SHADE_TEXT);
 	public static final Ghost DEMON = new Ghost(
-			new ArrayList<>(Arrays.asList(FREEZING, WRITING, BOX)), 
+			new ArrayList<>(Arrays.asList(FINGERPRINTS, FREEZING, WRITING)), 
 			DEMON_ID, DEMON_TEXT);
 	public static final Ghost YUREI = new Ghost(
-			new ArrayList<>(Arrays.asList(FREEZING, ORB, WRITING)), 
+			new ArrayList<>(Arrays.asList(FREEZING, ORB, DOTS)), 
 			YUREI_ID, YUREI_TEXT);
 	public static final Ghost ONI = new Ghost(
-			new ArrayList<>(Arrays.asList(EMF, WRITING, BOX)), 
+			new ArrayList<>(Arrays.asList(EMF, FREEZING, DOTS)), 
 			ONI_ID, ONI_TEXT);
 	public static final Ghost YOKAI = new Ghost(
-			new ArrayList<>(Arrays.asList(ORB, WRITING, BOX)), 
+			new ArrayList<>(Arrays.asList(ORB, BOX, DOTS)), 
 			YOKAI_ID, YOKAI_TEXT);
 	public static final Ghost HANTU = new Ghost(
-			new ArrayList<>(Arrays.asList(FINGERPRINTS, ORB, WRITING)), 
+			new ArrayList<>(Arrays.asList(FINGERPRINTS, FREEZING, ORB)), 
 			HANTU_ID, HANTU_TEXT);
+	public static final Ghost GORYO = new Ghost(
+			new ArrayList<>(Arrays.asList(EMF, FINGERPRINTS, DOTS)),
+			GORYO_ID, GORYO_TEXT);
+	public static final Ghost MYLING = new Ghost(
+			new ArrayList<>(Arrays.asList(EMF, FINGERPRINTS, WRITING)),
+			MYLING_ID, MYLING_TEXT);
+	
+	
+	
 	public static final ArrayList<Ghost> ALL_GHOSTS = new ArrayList<>(
 			Arrays.asList(SPIRIT, WRAITH, PHANTOM, POLTERGEIST, 
 					      BANSHEE, JINN, MARE, REVENANT, SHADE, 
-					      DEMON, YUREI, ONI, YOKAI, HANTU));
+					      DEMON, YUREI, ONI, YOKAI, HANTU, GORYO, MYLING));
 
 	/*************************
 	 * LEFT PANEL DIMENSIONS *

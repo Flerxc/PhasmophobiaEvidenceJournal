@@ -10,7 +10,7 @@ import constants.Constants;
 /**
  * Left panel containing all the evidence buttons
  * @author Francis Leroux-Contant
- * @version 2021-05-22
+ * @version 2021-08-26
  */
 public class LeftPanel extends JPanel{
 	
@@ -23,6 +23,7 @@ public class LeftPanel extends JPanel{
 	private JButton btnOrb;
 	private JButton btnWriting;
 	private JButton btnBox;
+	private JButton btnDots;
 	
 
 	/**
@@ -55,6 +56,7 @@ public class LeftPanel extends JPanel{
 		btnOrb = new EvidenceButton(Constants.ORB_TEXT);
 		btnWriting = new EvidenceButton(Constants.WRITING_TEXT);
 		btnBox = new EvidenceButton(Constants.BOX_TEXT);
+		btnDots = new EvidenceButton(Constants.DOTS_TEXT);
 	
 	}
 
@@ -80,6 +82,10 @@ public class LeftPanel extends JPanel{
 		add(btnWriting);
 		add(Box.createRigidArea(Constants.SMALL_RIGID_AREA_DIM));
 		
+		
 		add(btnBox);
+		add(Box.createRigidArea(Constants.SMALL_RIGID_AREA_DIM));
+		
+		add(btnDots);
 	}
 }
