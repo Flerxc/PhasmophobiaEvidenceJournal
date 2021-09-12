@@ -13,7 +13,7 @@ import data.Ghost;
 /**
  * Class containing various constants
  * @author Francis Leroux-Contant
- * @version 2021-08-26
+ * @version 2021-09-12
  */
 public class Constants {
 
@@ -207,5 +207,23 @@ public class Constants {
 	 ***************/
 	public static final Dimension BUTTON_SIZE = new Dimension(175, 75);
 	
+	/*******
+	 * SQL *
+	 *******/
+	public static final String TABLE_NAME= "games";
+	public static final String INSERT_STATEMENT = "INSERT INTO ";
+											
+	public static final String INSERT_COLUMNS = " (ghost_type,correct_ghost,date)" + 
+												" VALUES(?,?,?)";
+	public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS ";
+	public static final String  TABLE_COLUMNS = " (\n"
+											  + " game_ID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+											  + " ghost_type TEXT NOT NULL,\n"
+											  + " correct_ghost TEXT NOT NULL,\n"
+											  + " date TEXT NOT NULL\n"
+											  + ");";
+	
+	
+
 	
 }
