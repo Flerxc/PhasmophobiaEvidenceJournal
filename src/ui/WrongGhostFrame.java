@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import constants.Constants;
+import manager.PhasmophobiaManager;
 
 /**
  * Frame containing a combobox and a submit button to choose the right ghost if
@@ -106,7 +107,9 @@ public class WrongGhostFrame extends JFrame{
 			
 			String ghostType = (String) combobox.getSelectedItem();
 			
-			//TODO ADD TO DATABASE
+			PhasmophobiaManager.db.addGhost(PhasmophobiaManager.possibleGhosts.get(0).getGhostName(), 
+					ghostType, 
+					Constants.TABLE_NAME);
 			System.out.println(ghostType);
 			
 			dispose();

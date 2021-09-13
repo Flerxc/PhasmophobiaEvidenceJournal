@@ -23,6 +23,8 @@ public class PhasmophobiaManager {
 	// A list containing all evidences the player thinks are impossible
 	private static ArrayList<Evidence> impossibleEvidences = new ArrayList<>();
 	
+	public static Database db = new Database();
+	
 	
 	/**
 	 * Adds an evidence to the ghost then updates the list of possible ghosts

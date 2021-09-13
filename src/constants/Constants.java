@@ -207,10 +207,15 @@ public class Constants {
 	 ***************/
 	public static final Dimension BUTTON_SIZE = new Dimension(175, 75);
 	
-	/*******
-	 * SQL *
-	 *******/
+	/******************
+	 * DATABASE / SQL *
+	 ******************/
+	/* DEBUG
+	public static final String DATABASE_NAME = "PhasmophobiaJournal.db";
 	public static final String TABLE_NAME= "games";
+	*/
+	public static final String DATABASE_NAME = "debug.db";
+	public static final String TABLE_NAME= "debug";
 	public static final String INSERT_STATEMENT = "INSERT INTO ";
 											
 	public static final String INSERT_COLUMNS = " (ghost_type,correct_ghost,date)" + 

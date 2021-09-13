@@ -3,6 +3,7 @@ package ui;
 
 import javax.swing.JFrame;
 import constants.Constants;
+import manager.PhasmophobiaManager;
 
 /**
  * Main frame of the program. Gets called by SwingUtilities.invokeLater()
@@ -25,6 +26,8 @@ public class MyFrame extends JFrame implements Runnable {
 	 * Implementation of run() from the Runnable interface
 	 */
 	public void run() {
+		
+		PhasmophobiaManager.db.connect(Constants.DATABASE_NAME);
 		
 		setContentPane(new MyPanel());
 		

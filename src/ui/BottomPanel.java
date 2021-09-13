@@ -14,7 +14,7 @@ import manager.PhasmophobiaManager;
 /**
  * Bottom Panel containing a button to save the game in the database 
  * @author Francis Leroux-Contant
- * @version 2021-08-19
+ * @version 2021-09-12
  *
  */
 public class BottomPanel extends JPanel{
@@ -54,10 +54,12 @@ public class BottomPanel extends JPanel{
 												JOptionPane.YES_NO_OPTION) ==  
 												JOptionPane.YES_OPTION) {
 					System.out.println("RIGHT");
-					// TODO ADD TO DB
-					
+				
+					PhasmophobiaManager.db.addGhost(PhasmophobiaManager.possibleGhosts.get(0).getGhostName(),
+														 Constants.TABLE_NAME);
+			
 				}else {
-					System.out.println("WRONG");
+					
 					new WrongGhostFrame();
 				}
 				
