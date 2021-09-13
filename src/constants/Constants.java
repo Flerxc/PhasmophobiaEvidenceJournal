@@ -193,6 +193,13 @@ public class Constants {
 	public static final int BUTTON_INACTIVE_STATE = 0;
 	public static final int BUTTON_ACTIVE_STATE = 1;
 	
+	/***************
+	 * BUTTON TEXT *
+	 ***************/
+	public static final String BUTTON_GUESS = "Guess";
+	public static final String BUTTON_CLEAR = "CLEAR";
+	public static final String BUTTON_SUBMIT = "Submit";;
+	
 	
 	/*****************
 	 * BUTTON COLORS *
@@ -206,6 +213,18 @@ public class Constants {
 	 * BUTTON SIZE *
 	 ***************/
 	public static final Dimension BUTTON_SIZE = new Dimension(175, 75);
+	
+	/************
+	 * MESSAGES *
+	 ************/
+	
+	public static final String TOO_MANY_GHOSTS_MSG = "You need exactly ONE possible ghosts!";
+	public static final String ERROR_MSG = "Error";
+	public static final String TAKE_A_GUESS = "Take a guess!";
+	public static final String IS_YOUR_GHOST_A_MSG = "Is your ghost a ";
+	public static final String QUESTION_MARK = "?";
+	public static final String TOO_MANY_EVIDENCES_MSG = "Too many evidences! Choose maximum 3";
+	public static final String WHAT_IS_GHOST = "What is the right ghost?";
 	
 	/******************
 	 * DATABASE / SQL *

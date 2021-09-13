@@ -8,10 +8,11 @@ import manager.PhasmophobiaManager;
 /**
  * Main frame of the program. Gets called by SwingUtilities.invokeLater()
  * @author Francis Leroux-Contant
- * @version 2021-08-19
+ * @version 2021-09-12
  */
 public class MyFrame extends JFrame implements Runnable {
 	
+	private static MyPanel panel;
 	/**
 	 * Parameter constructor
 	 * @param title the title of the frame
@@ -19,6 +20,7 @@ public class MyFrame extends JFrame implements Runnable {
 	public MyFrame(String title) {
 		
 		super(title);
+		panel = new MyPanel();
 	}
 	
 	@Override
@@ -29,7 +31,7 @@ public class MyFrame extends JFrame implements Runnable {
 		
 		PhasmophobiaManager.db.connect(Constants.DATABASE_NAME);
 		
-		setContentPane(new MyPanel());
+		setContentPane(panel);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -42,5 +44,15 @@ public class MyFrame extends JFrame implements Runnable {
 					Constants.ACTUAL_SCREEN_SIZE.height / 2 - getSize().height / 2);
 		
 		setVisible(true);
+	}
+	
+	
+	/**
+	 * Resets the top panel and the manager
+	 */
+	public static void reset() {
+
+		PhasmophobiaManager.reset();
+		panel.reset();
 	}
 }

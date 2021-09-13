@@ -11,7 +11,6 @@ public class PhasmophobiaJournal {
 
 	public static void main(String[] args) {
 
-		
 		Runnable prog = new MyFrame("Phasmophobia Evidence Journal");
 		
 		SwingUtilities.invokeLater(prog);	

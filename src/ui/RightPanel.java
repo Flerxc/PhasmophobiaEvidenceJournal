@@ -13,7 +13,7 @@ import manager.PhasmophobiaManager;
 /**
  * Right panel containing the list of possible ghosts
  * @author Francis Leroux-Contant
- * @version 2021-05-22
+ * @version 2021-09-12
  */
 public class RightPanel extends JPanel{
 
@@ -32,6 +32,13 @@ public class RightPanel extends JPanel{
 		
 		add(label);
 		
+		update();
+	}
+	
+	/**
+	 * Resets the label by updating it
+	 */
+	public void reset() {
 		update();
 	}
 	

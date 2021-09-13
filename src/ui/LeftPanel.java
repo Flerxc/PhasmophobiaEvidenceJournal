@@ -2,7 +2,6 @@ package ui;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import constants.Constants;
@@ -10,20 +9,20 @@ import constants.Constants;
 /**
  * Left panel containing all the evidence buttons
  * @author Francis Leroux-Contant
- * @version 2021-08-26
+ * @version 2021-09-12
  */
 public class LeftPanel extends JPanel{
 	
 	/***************
 	 *  ATTRIBUTES *
 	 ****************/
-	private JButton btnEMF;
-	private JButton btnFingerprints;
-	private JButton btnFreezing;
-	private JButton btnOrb;
-	private JButton btnWriting;
-	private JButton btnBox;
-	private JButton btnDots;
+	private EvidenceButton btnEMF;
+	private EvidenceButton btnFingerprints;
+	private EvidenceButton btnFreezing;
+	private EvidenceButton btnOrb;
+	private EvidenceButton btnWriting;
+	private EvidenceButton btnBox;
+	private EvidenceButton btnDots;
 	
 
 	/**
@@ -87,5 +86,18 @@ public class LeftPanel extends JPanel{
 		add(Box.createRigidArea(Constants.SMALL_RIGID_AREA_DIM));
 		
 		add(btnDots);
+	}
+	
+	/**
+	 * Resets every evidence button
+	 */
+	public void reset() {
+		btnEMF.reset();
+		btnFingerprints.reset();
+		btnFreezing.reset();
+		btnOrb.reset();
+		btnWriting.reset();
+		btnBox.reset();
+		btnDots.reset();
 	}
 }

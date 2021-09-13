@@ -23,7 +23,8 @@ public class BottomPanel extends JPanel{
 	 *  ATTRIBUTES *
 	 ****************/
 	
-	private JButton btn;
+	private JButton btnGuess;
+	private JButton btnClear;
 	
 	/**
 	 * Default constructor
@@ -32,13 +33,26 @@ public class BottomPanel extends JPanel{
 		
 		super();
 		
-		btn = new JButton("GUESS");
-		btn.addActionListener(new ButtonListener());
+		btnGuess = new JButton(Constants.BUTTON_GUESS);
+		btnGuess.addActionListener(new ButtonListener());
 		
-		add(btn);
+		btnClear = new JButton (Constants.BUTTON_CLEAR);
+		btnClear.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MyFrame.reset();
+				
+			}
+		});
+		
+		add(btnGuess);
+		add(btnClear);
+		
 		
 
-		btn.setPreferredSize(Constants.BUTTON_SIZE);
+		btnGuess.setPreferredSize(Constants.BUTTON_SIZE);
+		btnClear.setPreferredSize(Constants.BUTTON_SIZE);
 		setPreferredSize(Constants.BOT_PANEL_SIZE);
 	}
 	
@@ -47,10 +61,12 @@ public class BottomPanel extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-			if(PhasmophobiaManager.possibleGhosts.size()==1) {
+			if(PhasmophobiaManager.possibleGhosts.size() == 1) {
 				
-				String ghostType = "Is your ghost a " + PhasmophobiaManager.possibleGhosts.get(0).getGhostName() + "?";
-				if(JOptionPane.showConfirmDialog(null, ghostType, "Take a guess!", 
+				String ghostType = Constants.IS_YOUR_GHOST_A_MSG 
+						+ PhasmophobiaManager.possibleGhosts.get(0).getGhostName() 
+						+ Constants.QUESTION_MARK;
+				if(JOptionPane.showConfirmDialog(null, ghostType, Constants.TAKE_A_GUESS, 
 												JOptionPane.YES_NO_OPTION) ==  
 												JOptionPane.YES_OPTION) {
 					System.out.println("RIGHT");
@@ -58,6 +74,7 @@ public class BottomPanel extends JPanel{
 					PhasmophobiaManager.db.addGhost(PhasmophobiaManager.possibleGhosts.get(0).getGhostName(),
 														 Constants.TABLE_NAME);
 			
+					MyFrame.reset();
 				}else {
 					
 					new WrongGhostFrame();
@@ -65,7 +82,7 @@ public class BottomPanel extends JPanel{
 				
 			}else {
 				JOptionPane.showMessageDialog(new JFrame(), 
-						"You need exactly ONE possible ghosts!", "Error",
+						Constants.TOO_MANY_GHOSTS_MSG, Constants.ERROR_MSG,
 						JOptionPane.WARNING_MESSAGE);
 			}
 		}		

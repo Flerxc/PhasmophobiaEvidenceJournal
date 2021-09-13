@@ -16,7 +16,7 @@ import manager.PhasmophobiaManager;
  * Frame containing a combobox and a submit button to choose the right ghost if
  * the player is wrong
  * @author Francis Leroux-Contant
- * @version 2021-08-19
+ * @version 2021-09-12
  *
  */
 public class WrongGhostFrame extends JFrame{
@@ -72,11 +72,11 @@ public class WrongGhostFrame extends JFrame{
 		panel = new JPanel();
 		setContentPane(panel);
 		
-		label = new JLabel("What is the right ghost?");
+		label = new JLabel(Constants.WHAT_IS_GHOST);
 		
 		combobox = new JComboBox<String>(getGhostTypes());
 		
-		submitBtn = new JButton ("Submit");
+		submitBtn = new JButton (Constants.BUTTON_SUBMIT);
 		submitBtn.addActionListener(new ButtonListener());	
 	}
 
@@ -112,6 +112,7 @@ public class WrongGhostFrame extends JFrame{
 					Constants.TABLE_NAME);
 			System.out.println(ghostType);
 			
+			MyFrame.reset();
 			dispose();
 		}
 		

@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 /**
  * Main panel containing a top panel and a bottom panel
  * @author Francis Leroux-Contant
- * @version 2021-08-19
+ * @version 2021-09-12
  */
 public class MyPanel extends JPanel{
 
@@ -13,8 +13,8 @@ public class MyPanel extends JPanel{
 	 * ATTRIBUTES *
 	 **************/
 	
-	private JPanel topPanel;
-	private JPanel bottomPanel;
+	private TopPanel topPanel;
+	private BottomPanel bottomPanel;
 	
 	/**
 	 * Default constructor
@@ -30,4 +30,11 @@ public class MyPanel extends JPanel{
 		add(topPanel);
 		add(bottomPanel);
 	}	
+	
+	/**
+	 * Resets the top panel
+	 */
+	public void reset() {
+		topPanel.reset();
+	}
 }

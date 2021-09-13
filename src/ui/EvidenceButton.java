@@ -19,7 +19,7 @@ import manager.PhasmophobiaManager;
  * Class representing a button that adds an Evidence to the player's ghost
  * or the list of impossible evidences
  * @author Francis Leroux-Contant
- * @version 2021-05-22
+ * @version 2021-09-12
  *
  */
 public class EvidenceButton extends JButton{
@@ -60,6 +60,15 @@ public class EvidenceButton extends JButton{
 	}
 	
 	/**
+	 * Resets the button to its default state and color
+	 */
+	public void reset() {
+		
+		this.buttonState = Constants.BUTTON_INACTIVE_STATE;
+		setBackground(Constants.BUTTON_DEFAULT_COLOR);
+	}
+	
+	/**
 	 * Private class implementing ActionLsitener
 	 */
 	private class ButtonActionListener implements ActionListener {
@@ -87,7 +96,7 @@ public class EvidenceButton extends JButton{
 						
 						// Shows an error message to the user
 						JOptionPane.showMessageDialog(new JFrame(), 
-								"Too many evidences! Choose maximum 3", "Error",
+								Constants.TOO_MANY_EVIDENCES_MSG, Constants.ERROR_MSG,
 								JOptionPane.WARNING_MESSAGE);
 					}
 				}else if(shiftPressed){ // SHIFT is not pressed

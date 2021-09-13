@@ -9,7 +9,7 @@ import constants.Constants;
 /**
  * Top Panel containing a left side panel (buttons) and a right side panel (text)
  * @author Francis Leroux-Contant
- * @version 2021-08-19
+ * @version 2021-09-12
  *
  */
 public class TopPanel extends JPanel{
@@ -18,8 +18,8 @@ public class TopPanel extends JPanel{
 	 *  ATTRIBUTES *
 	 ****************/
 	
-	private JPanel btnPanel;
-	private JPanel infoPanel;
+	private LeftPanel btnPanel;
+	private RightPanel infoPanel;
 	
 	/**
 	 * Default constructor
@@ -39,4 +39,11 @@ public class TopPanel extends JPanel{
 		setPreferredSize(Constants.TOP_PANEL_SIZE);
 	}
 
+	/**
+	 * resets both panels
+	 */
+	public void reset() {
+		btnPanel.reset();
+		infoPanel.reset();
+	}
 }

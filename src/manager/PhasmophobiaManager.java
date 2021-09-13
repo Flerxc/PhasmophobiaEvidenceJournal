@@ -8,7 +8,7 @@ import data.*;
 /**
  * Manipulates the data to find the possible ghost
  * @author Francis Leroux-Contant
- * @version 2021-05-22
+ * @version 2021-09-12
  */
 public class PhasmophobiaManager {
 
@@ -138,5 +138,17 @@ public class PhasmophobiaManager {
 	
 		impossibleEvidences.remove(evidence);
 		update();
+	}
+	
+	/**
+	 * Resets important data
+	 */
+	@SuppressWarnings("unchecked")
+	public static void reset() {
+		possibleGhosts = 
+				(ArrayList<Ghost>) Constants.ALL_GHOSTS.clone();
+		impossibleEvidences = new ArrayList<Evidence>();
+		ghost = new Ghost();
+		
 	}
 }
