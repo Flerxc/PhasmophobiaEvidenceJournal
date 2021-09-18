@@ -1,5 +1,10 @@
 package tests;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.junit.*;
 
 import data.Database;
@@ -7,7 +12,7 @@ import data.Database;
 /**
  * Tests for the Database class
  * @author Francis Leroux-Contant
- * @version 2021-09-12
+ * @version 2021-09-17
  */
 public class DatabaseTest {
 	
@@ -58,22 +63,22 @@ public class DatabaseTest {
 	
 	@Test
 	public void itShouldAddRightGhostToDatabase() {
-		 // Arrange
+		// Arrange
 		Database  db =  new Database();
 		db.connect("test.db");
 		boolean ghostAdded = false; 
 		
-		 // Act
+		// Act
 		ghostAdded = db.addGhost("Spirit", "test_game");
 		db.disconnect();
 				 
-		 // Assert
-		 Assert.assertTrue(ghostAdded);
+		// Assert
+		Assert.assertTrue(ghostAdded);
 	}
 	
 	@Test
 	public void itShouldAddWrongGhostToDatabase() {
-		 // Arrange
+		// Arrange
 		Database  db =  new Database();
 		db.connect("test.db");
 		boolean ghostAdded = false; 
@@ -84,6 +89,89 @@ public class DatabaseTest {
 				 
 		 // Assert
 		 Assert.assertTrue(ghostAdded);
+	}
+	
+	@Test
+	public void itShouldReadDB() {
+		// Arrange
+		int i = 0;
+		Database  db =  new Database();
+		db.connect("test.db");
+		boolean readCorrectly = true;
+		ArrayList<String> expected = new ArrayList<>(Arrays.asList("Banshee", "Spirit", "12-09-2021", 
+																   "Spirit", "Spirit", "12-09-2021", 
+																   "Oni", "Hantu", "12-09-2021"));
+		// Act
+		ResultSet rs = db.readDB("test_read");
+				 
+		// Assert
+		try {
+			while(rs.next()) {
+				
+				if(!(rs.getString("ghost_name").equals(expected.get(i)) 	 &&
+				   rs.getString("correct_ghost").equals(expected.get(i + 1)) &&
+				   rs.getString("date").equals(expected.get(i + 2)))) {
+					
+					
+					readCorrectly = false;
+					
+				}
+				i+=3;
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+
+			db.disconnect();
+		}
 		
+		Assert.assertTrue(readCorrectly);
+	}
+	
+	@Test
+	public void itShouldCountTheNumberOfTimeAGhostWasPlayed() {
+		// Arrange
+		Database  db =  new Database();
+		db.connect("test.db");
+		boolean countedCorrectly = false;
+		
+		// Act
+		countedCorrectly = db.count("Spirit", "correct_ghost", "test_read") == 2;
+				 
+		// Assert
+		db.disconnect();
+		Assert.assertTrue(countedCorrectly);
+	}
+	
+	@Test
+	public void itShouldCounWinrate() {
+		// Arrange
+		Database  db =  new Database();
+		db.connect("test.db");
+		boolean countedCorrectly = false;
+		
+		// Act
+		countedCorrectly = db.countWinrate("test_read") == 1.0/3.0 * 100.0;
+		db.disconnect();
+		
+		// Assert
+		
+		Assert.assertTrue(countedCorrectly);
+	}
+	
+	@Test
+	public void itShouldCountFrequencyGhost(){
+		// Arrange
+		Database  db =  new Database();
+		db.connect("test.db");
+		
+		// Act
+		double correctFrequency = db.frequency("Spirit", "test_read");
+		db.disconnect();
+		
+		// Assert
+		
+		Assert.assertTrue(correctFrequency == 2.0/3.0);
 	}
 }
