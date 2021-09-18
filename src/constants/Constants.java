@@ -13,7 +13,7 @@ import data.Ghost;
 /**
  * Class containing various constants
  * @author Francis Leroux-Contant
- * @version 2021-09-12
+ * @version 2021-09-17
  */
 public class Constants {
 
@@ -182,7 +182,7 @@ public class Constants {
 	public static final Dimension ACTUAL_SCREEN_SIZE = 
 									Toolkit.getDefaultToolkit().getScreenSize();
 
-	public static final Dimension MAX_SCREEN_SIZE = new Dimension(550, 600);
+	public static final Dimension MAX_SCREEN_SIZE = new Dimension(550, 650);
 	public static final Dimension TOP_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.75));
 	public static final Dimension BOT_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.25));
 	public static final Dimension WRONG_GHOST_FRAME_SIZE = new Dimension(180, 125);
@@ -198,7 +198,7 @@ public class Constants {
 	 ***************/
 	public static final String BUTTON_GUESS = "Guess";
 	public static final String BUTTON_CLEAR = "CLEAR";
-	public static final String BUTTON_SUBMIT = "Submit";;
+	public static final String BUTTON_SUBMIT = "Submit";
 	
 	
 	/*****************
@@ -235,19 +235,6 @@ public class Constants {
 	*/
 	public static final String DATABASE_NAME = "debug.db";
 	public static final String TABLE_NAME= "debug";
-	public static final String INSERT_STATEMENT = "INSERT INTO ";
-											
-	public static final String INSERT_COLUMNS = " (ghost_type,correct_ghost,date)" + 
-												" VALUES(?,?,?)";
-	public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS ";
-	public static final String  TABLE_COLUMNS = " (\n"
-											  + " game_ID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
-											  + " ghost_type TEXT NOT NULL,\n"
-											  + " correct_ghost TEXT NOT NULL,\n"
-											  + " date TEXT NOT NULL\n"
-											  + ");";
-	
-	
 
 	
 }
