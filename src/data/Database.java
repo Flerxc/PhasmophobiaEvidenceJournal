@@ -215,7 +215,7 @@ public class Database {
 			winrate = ((double)winCount / (double)gameCount * 100.0);
 		}
 		
-		return winrate;
+		return Math.round(winrate * 100.0) / 100.;
 	}
 	
 	/**
@@ -226,7 +226,8 @@ public class Database {
 	 */
 	public double frequency(String ghost, String tableName) {
 		
-		return (double)count(ghost, "correct_ghost", tableName) / (double)getTotalGame(tableName);
+		double frequency = (double)count(ghost, "correct_ghost", tableName) / (double)getTotalGame(tableName) * 100.0;
+		return Math.round(frequency * 100.0) / 100.0;
 	}
 	
 	/**
@@ -234,7 +235,7 @@ public class Database {
 	 * @param tableName
 	 * @return
 	 */
-	private int getTotalGame(String tableName) {
+	public int getTotalGame(String tableName) {
 		return countGeneric("SELECT count(*) as total FROM " + 
 				 tableName + ";");
 	}

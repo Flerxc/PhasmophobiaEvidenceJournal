@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 import javax.swing.UIManager;
 
 import data.Evidence;
@@ -163,7 +164,6 @@ public class Constants {
 			MYLING_ID, MYLING_TEXT);
 	
 	
-	
 	public static final ArrayList<Ghost> ALL_GHOSTS = new ArrayList<>(
 			Arrays.asList(SPIRIT, WRAITH, PHANTOM, POLTERGEIST, 
 					      BANSHEE, JINN, MARE, REVENANT, SHADE, 
@@ -185,7 +185,8 @@ public class Constants {
 	public static final Dimension MAX_SCREEN_SIZE = new Dimension(550, 650);
 	public static final Dimension TOP_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.75));
 	public static final Dimension BOT_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.25));
-	public static final Dimension WRONG_GHOST_FRAME_SIZE = new Dimension(180, 125);
+	public static final Dimension SMALL_SECONDARY_FRAME_SIZE = new Dimension(180, 125);
+	public static final Dimension BIG_SECONDARY_FRAME_SIZE = new Dimension(300, 500);
 	
 	/*****************
 	 * BUTTON STATES *
@@ -214,6 +215,17 @@ public class Constants {
 	 ***************/
 	public static final Dimension BUTTON_SIZE = new Dimension(175, 75);
 	
+	/*********
+	 * MENUS *
+	 *********/
+
+
+	public static final String TAB_MENU_STATS = "Statistics";
+	public static final String MENU_GENERAL = "General Stats";
+	public static final String MENU_HISTORY = "History";
+	public static final int MENU_PANEL_BORDER_SIZE_HOR = 55;
+	public static final int MENU_PANEL_BORDER_SIZE_VERT = 10;
+	
 	/************
 	 * MESSAGES *
 	 ************/
@@ -233,8 +245,9 @@ public class Constants {
 	public static final String DATABASE_NAME = "PhasmophobiaJournal.db";
 	public static final String TABLE_NAME= "games";
 	*/
-	public static final String DATABASE_NAME = "debug.db";
-	public static final String TABLE_NAME= "debug";
+	public static final String DATABASE_NAME = "test.db";
+	public static final String TABLE_NAME= "test_read";
+	public static final String COLUMN_CORRECT_GHOST = "correct_ghost";
 
 	
 }

@@ -2,17 +2,24 @@ package ui;
 
 
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+
 import constants.Constants;
 import manager.PhasmophobiaManager;
 
 /**
  * Main frame of the program. Gets called by SwingUtilities.invokeLater()
  * @author Francis Leroux-Contant
- * @version 2021-09-12
+ * @version 2021-09-17
  */
 public class MyFrame extends JFrame implements Runnable {
 	
+	/***************
+	 *  ATTRIBUTES *
+	 ****************/
 	private static MyPanel panel;
+	private JMenuBar menuBar;
+
 	/**
 	 * Parameter constructor
 	 * @param title the title of the frame
@@ -21,6 +28,7 @@ public class MyFrame extends JFrame implements Runnable {
 		
 		super(title);
 		panel = new MyPanel();
+		menuBar = new JMenuBar();
 	}
 	
 	@Override
@@ -44,6 +52,9 @@ public class MyFrame extends JFrame implements Runnable {
 					Constants.ACTUAL_SCREEN_SIZE.height / 2 - getSize().height / 2);
 		
 		setVisible(true);
+		
+		menuBar.add(new StatMenu(Constants.TAB_MENU_STATS));
+		setJMenuBar(menuBar);
 	}
 	
 	
