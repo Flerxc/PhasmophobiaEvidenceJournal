@@ -15,7 +15,7 @@ import manager.PhasmophobiaManager;
  * Frame containing a combobox and a submit button to choose the right ghost if
  * the player is wrong
  * @author Francis Leroux-Contant
- * @version 2021-09-17
+ * @version 2021-09-18
  *
  */
 public class WrongGhostFrame extends AbstractFrame{
@@ -65,6 +65,10 @@ public class WrongGhostFrame extends AbstractFrame{
 	}
 
 
+	/**
+	 * Returns an array containing the name of every ghost
+	 * @return an array containing the name of every ghost
+	 */
 	private String[] getGhostTypes() {
 		String[] ghosts = new String[Constants.ALL_GHOSTS.size()];
 		
@@ -74,6 +78,7 @@ public class WrongGhostFrame extends AbstractFrame{
 		return ghosts;
 	}
 	
+	// Private class adding a ghost to the database depending of the user's choice
 	private class ButtonListener implements ActionListener{
 
 		@Override

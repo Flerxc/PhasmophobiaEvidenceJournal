@@ -9,11 +9,13 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import constants.Constants;
+
 
 /**
  * Methods for the app local SQLite database
  * @author Francis Leroux-Contant
- * @version 2021-09-17
+ * @version 2021-09-18
  */
 public class Database {
 	
@@ -110,8 +112,11 @@ public class Database {
 				PreparedStatement pstmt = conn.prepareStatement(
 											"INSERT INTO " +
 											tableName +
-											" (ghost_type,correct_ghost,date)" + 
-											" VALUES(?,?,?)"
+											" (" 
+											+ Constants.COLUMN_GHOST_TYPE + "," 
+											+ Constants.COLUMN_CORRECT_GHOST 
+											+ "," + Constants.COLUMN_DATE + ")" 
+											+ " VALUES(?,?,?)"
 										);
 				
 				pstmt.setString(1, ghostType);
@@ -185,12 +190,18 @@ public class Database {
 	 * @return the ammount of time the ghost appears in the database in the column
 	 */
 	public int count(String ghost, String column, String tableName) {
-		int count = countGeneric("SELECT count(" 
-							+ column 
-							+ ") as total FROM " 
-							+ tableName 
-							+ " WHERE " + column + " = '" + ghost + "';"
-						);
+		int count;
+		try {
+			count = countGeneric("SELECT count(" 
+								+ column 
+								+ ") as total FROM " 
+								+ tableName 
+								+ " WHERE " + column + " = '" + ghost + "';"
+							);
+		} catch (SQLException e) {
+			
+			count = 0;
+		}
 		
 		return count;
 	}
@@ -208,11 +219,19 @@ public class Database {
 		
 		if(gameCount > 0) {
 			
-			int winCount = countGeneric("SELECT count(*) as total FROM " + 
-								    tableName + 
-								    " WHERE correct_ghost = ghost_name;");
+			int winCount;
+			try {
+				winCount = countGeneric("SELECT count(*) as total FROM " + 
+									    tableName + 
+									    " WHERE + " + Constants.COLUMN_CORRECT_GHOST + 
+									    " = " + Constants.COLUMN_GHOST_TYPE + ";");
+
+				winrate = ((double)winCount / (double)gameCount * 100.0);
+			} catch (SQLException e) {
+				
+				winCount = 0;
+			}
 			
-			winrate = ((double)winCount / (double)gameCount * 100.0);
 		}
 		
 		return Math.round(winrate * 100.0) / 100.;
@@ -226,7 +245,8 @@ public class Database {
 	 */
 	public double frequency(String ghost, String tableName) {
 		
-		double frequency = (double)count(ghost, "correct_ghost", tableName) / (double)getTotalGame(tableName) * 100.0;
+		double frequency = (double)count(ghost, Constants.COLUMN_CORRECT_GHOST, tableName) 
+						 / (double)getTotalGame(tableName) * 100.0;
 		return Math.round(frequency * 100.0) / 100.0;
 	}
 	
@@ -236,33 +256,37 @@ public class Database {
 	 * @return
 	 */
 	public int getTotalGame(String tableName) {
-		return countGeneric("SELECT count(*) as total FROM " + 
-				 tableName + ";");
+		
+		int i;
+		try{
+			i = countGeneric("SELECT count(*) as total FROM " + 
+					 tableName + ";");
+		}catch(SQLException e) {
+			i = 0;
+		}
+		
+		return  i;
 	}
 	
 	/**
 	 * Runs a sql query to count the number of time x value appears in y column
 	 * @param sql the sql query to run
+	 * @throws SQLException if the database is empty
 	 * @return the count
 	 */
-	private int countGeneric(String sql){
+	private int countGeneric(String sql) throws SQLException{
 		
 		int count = 0;
 		
-		try {
+
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		while(rs.next()) {
 			
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(sql);
-			
-			while(rs.next()) {
-				
-				count = rs.getInt("total");
-			}
-			
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
+			count = rs.getInt("total");
 		}
+	
 		return count;
 	}
 	

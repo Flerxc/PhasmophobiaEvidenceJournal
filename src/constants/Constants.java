@@ -14,7 +14,7 @@ import data.Ghost;
 /**
  * Class containing various constants
  * @author Francis Leroux-Contant
- * @version 2021-09-17
+ * @version 2021-09-18
  */
 public class Constants {
 
@@ -219,12 +219,13 @@ public class Constants {
 	 * MENUS *
 	 *********/
 
-
 	public static final String TAB_MENU_STATS = "Statistics";
 	public static final String MENU_GENERAL = "General Stats";
 	public static final String MENU_HISTORY = "History";
 	public static final int MENU_PANEL_BORDER_SIZE_HOR = 55;
 	public static final int MENU_PANEL_BORDER_SIZE_VERT = 10;
+	public static final int N_COLUMNS = 3;
+	public static final String[] MENU_COLUMN_NAMES = {"Guessed", "Ghost", "Date"};
 	
 	/************
 	 * MESSAGES *
@@ -237,17 +238,22 @@ public class Constants {
 	public static final String QUESTION_MARK = "?";
 	public static final String TOO_MANY_EVIDENCES_MSG = "Too many evidences! Choose maximum 3";
 	public static final String WHAT_IS_GHOST = "What is the right ghost?";
+	public static final String DATABASE_EMPTY_MSG = "Database is empty, play at least one game.";
 	
 	/******************
 	 * DATABASE / SQL *
 	 ******************/
+	
 	/* DEBUG
+	public static final String DATABASE_NAME = "debug.db";
+	public static final String TABLE_NAME= "debug";
+	*/
 	public static final String DATABASE_NAME = "PhasmophobiaJournal.db";
 	public static final String TABLE_NAME= "games";
-	*/
-	public static final String DATABASE_NAME = "test.db";
-	public static final String TABLE_NAME= "test_read";
 	public static final String COLUMN_CORRECT_GHOST = "correct_ghost";
+	public static final String COLUMN_GHOST_TYPE = "ghost_type";
+	public static final String COLUMN_DATE = "date";
+	
 
 	
 }
