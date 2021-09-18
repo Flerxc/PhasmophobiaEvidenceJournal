@@ -3,18 +3,17 @@ package data;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import constants.Constants;
-
 
 /**
  * Methods for the app local SQLite database
  * @author Francis Leroux-Contant
- * @version 2021-09-12
+ * @version 2021-09-17
  */
 public class Database {
 	
@@ -28,7 +27,6 @@ public class Database {
 		this.conn = null;
 	}
 
-	
 	/**
 	 * Connects to a SQLite database with the name given by database.
 	 * @param database the name of the database
@@ -57,7 +55,6 @@ public class Database {
 		return connectionEstablished;
 	}
 
-	
 	/**
 	 * Disconnects the current database connection
 	 * @return true if the connection is closed without problems
@@ -105,13 +102,18 @@ public class Database {
 	 * @return true if the operation was a success
 	 */
 	public boolean addGhost(String ghostType, String correctGhost, String tableName) {
-		String sql = Constants.INSERT_STATEMENT + tableName + Constants.INSERT_COLUMNS;
-		
+
 		boolean ghostAdded = false;
 		if(createTable(tableName)) {
 			try {
 				
-				PreparedStatement pstmt = conn.prepareStatement(sql);
+				PreparedStatement pstmt = conn.prepareStatement(
+											"INSERT INTO " +
+											tableName +
+											" (ghost_type,correct_ghost,date)" + 
+											" VALUES(?,?,?)"
+										);
+				
 				pstmt.setString(1, ghostType);
 				pstmt.setString(2, correctGhost);
 				pstmt.setString(3, getDate());
@@ -137,7 +139,16 @@ public class Database {
 		try {
 			
 			Statement stmt = conn.createStatement();
-			stmt.execute(Constants.CREATE_TABLE + tableName + Constants.TABLE_COLUMNS);
+			stmt.execute(
+						  "CREATE TABLE IF NOT EXISTS " 
+						  + tableName 
+						  +	" (\n"
+						  + " game_ID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+						  + " ghost_type TEXT NOT NULL,\n"
+						  + " correct_ghost TEXT NOT NULL,\n"
+						  + " date TEXT NOT NULL\n"
+						  + ");"
+					  );
 			tableCreated = true;
 			
 		} catch (SQLException e) {
@@ -147,6 +158,112 @@ public class Database {
 		return tableCreated;
 	}
 	
+	/**
+	 * Reads the table given by table_name 
+	 * @param table_name the name of the table to read
+	 * @return the ResulSet read in the database
+	 */
+	public ResultSet readDB(String tableName) {
+		
+		ResultSet rs = null;
+		try {
+			
+			Statement stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM " + tableName + ";");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+
+	/**
+	 * Counts the ammount of time a certain ghost appears in the given column
+	 * @param ghost the ghost type
+	 * @param column the column
+	 * @param tableName the table to read from
+	 * @return the ammount of time the ghost appears in the database in the column
+	 */
+	public int count(String ghost, String column, String tableName) {
+		int count = countGeneric("SELECT count(" 
+							+ column 
+							+ ") as total FROM " 
+							+ tableName 
+							+ " WHERE " + column + " = '" + ghost + "';"
+						);
+		
+		return count;
+	}
+
+
+	/**
+	 * Counts the percentage of time the value of the ghost_type column = the value of the correct_ghost column.
+	 * @param tableName The table to read the data from
+	 * @return The percentage of game that were won by the user (winrate)
+	 */
+	public double countWinrate(String tableName) {
+
+		int gameCount = getTotalGame(tableName);
+		double winrate = 0.0;
+		
+		if(gameCount > 0) {
+			
+			int winCount = countGeneric("SELECT count(*) as total FROM " + 
+								    tableName + 
+								    " WHERE correct_ghost = ghost_name;");
+			
+			winrate = ((double)winCount / (double)gameCount * 100.0);
+		}
+		
+		return winrate;
+	}
+	
+	/**
+	 * Counts the frequency a ghost type is played against
+	 * @param ghost the type of ghost to count
+	 * @param tableName the table to read
+	 * @return the frequency the player has seen the ghost
+	 */
+	public double frequency(String ghost, String tableName) {
+		
+		return (double)count(ghost, "correct_ghost", tableName) / (double)getTotalGame(tableName);
+	}
+	
+	/**
+	 * Counts the total number of games played.
+	 * @param tableName
+	 * @return
+	 */
+	private int getTotalGame(String tableName) {
+		return countGeneric("SELECT count(*) as total FROM " + 
+				 tableName + ";");
+	}
+	
+	/**
+	 * Runs a sql query to count the number of time x value appears in y column
+	 * @param sql the sql query to run
+	 * @return the count
+	 */
+	private int countGeneric(String sql){
+		
+		int count = 0;
+		
+		try {
+			
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				
+				count = rs.getInt("total");
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return count;
+	}
 	
 	/**
 	 * Returns today's date in the dd-MM-yyyy format
