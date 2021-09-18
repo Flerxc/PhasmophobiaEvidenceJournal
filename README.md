@@ -8,13 +8,18 @@ Le but d'une partie de Phasmophobia est d'investiguer un lieu et d'y trouver tro
 
 Cette application permet au joueur de d'éliminer des choix de fantômes qui sont impossible en fonction des indices trouvés.
 
+## Installation
+1.  Assurez vous d'avoir la version de [java](https://www.java.com/en/download/) la plus récente.
+2.  Téléchargez le fichier *Phasmophobia Evidence Journal.jar* du repertoire **dist**.
+3.  Exécutez la commande  <code>javaw -jar '.\Phasmophobia Evidence Journal.jar'</code>
+4.  Lors de la première utilisation, la base de données *PhasmophobiaJournal.db* sera créée dans le même répertoire où vous avez téléchargé le fichier <code>.jar</code>. 
+
 ## Utilisation
 Au lancement de l'application, le joueur se trouve devant une fenêtre séparée en plusieurs sections:
 1. À gauche, sept boutons représentants chacun l'un des indices possibles;
 2. À droite, la liste des types de fantômes actuellement possibles;
-3. Dans la partie inférieure, deux boutons sont présents, un pour tenter de deviner, l'autre pour remettre l'application à zéro;;
+3. Dans la partie inférieure, deux boutons sont présents, un pour tenter de deviner, l'autre pour remettre l'application à zéro;
 4. Dans la partie supérieure, un menu permettant d'avoir accès aux statistiques accumulées depuis la première utilisation de l'application.
-
 
 ![Fenêtre principale de l'application.](https://raw.githubusercontent.com/Flerxc/PhasmophobiaEvidenceJournal/main/img/img1.PNG "Fenêtre principale")
 
