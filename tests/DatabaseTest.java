@@ -152,7 +152,7 @@ public class DatabaseTest {
 		boolean countedCorrectly = false;
 		
 		// Act
-		countedCorrectly = db.countWinrate("test_read") == 1.0/3.0 * 100.0;
+		countedCorrectly = db.countWinrate("test_read") == 33.33;
 		db.disconnect();
 		
 		// Assert
@@ -172,6 +172,6 @@ public class DatabaseTest {
 		
 		// Assert
 		
-		Assert.assertTrue(correctFrequency == 2.0/3.0);
+		Assert.assertTrue(correctFrequency == 66.67);
 	}
 }
