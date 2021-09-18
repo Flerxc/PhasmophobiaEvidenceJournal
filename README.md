@@ -42,7 +42,7 @@ Lorsque le joueur pense avoir trouver le bon type de fantôme, il doit appuyer s
 
 ![L'application demande au joueur si le bon fantôme a été trouvé.](https://raw.githubusercontent.com/Flerxc/PhasmophobiaEvidenceJournal/main/img/img6.png "Fenêtre de confirmation du fantôme")
 
-1. Si le joueur s'est trompé et qu'il clique sur ***No***, une nouvelle fenêtre s'ouvrira afin qu'il puisse selectionner le bon fantôme afin qu'il soit enregistré dans la base de données.
+2. Si le joueur s'est trompé et qu'il clique sur ***No***, une nouvelle fenêtre s'ouvrira afin qu'il puisse selectionner le bon fantôme afin qu'il soit enregistré dans la base de données.
 
 ![L'application demande au joueur quel est le bon fantôme.](https://raw.githubusercontent.com/Flerxc/PhasmophobiaEvidenceJournal/main/img/img7.PNG "Fenêtre de confirmation du bon fantôme")
 
