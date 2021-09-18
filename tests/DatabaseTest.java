@@ -108,7 +108,7 @@ public class DatabaseTest {
 		try {
 			while(rs.next()) {
 				
-				if(!(rs.getString("ghost_name").equals(expected.get(i)) 	 &&
+				if(!(rs.getString("ghost_type").equals(expected.get(i)) 	 &&
 				   rs.getString("correct_ghost").equals(expected.get(i + 1)) &&
 				   rs.getString("date").equals(expected.get(i + 2)))) {
 					
