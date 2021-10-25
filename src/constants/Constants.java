@@ -14,7 +14,7 @@ import data.Ghost;
 /**
  * Class containing various constants
  * @author Francis Leroux-Contant
- * @version 2021-09-18
+ * @version 2021-10-25
  */
 public class Constants {
 
@@ -50,6 +50,10 @@ public class Constants {
 	public static final String HANTU_TEXT = "Hantu";
 	public static final String GORYO_TEXT = "Goryo";
 	public static final String MYLING_TEXT = "Myling";
+	public static final String TWINS_TEXT = "The Twins";
+	public static final String ONRYO_TEXT = "Onryo";
+	public static final String RAIJU_TEXT = "Raiju";
+	public static final String OBAKE_TEXT = "Obake";
 	
 	
 	/*************
@@ -71,6 +75,10 @@ public class Constants {
 	public static final int HANTU_ID = 14;
 	public static final int GORYO_ID = 15;
 	public static final int MYLING_ID = 16;
+	public static final int TWINS_ID = 17;
+	public static final int ONRYO_ID = 18;
+	public static final int RAIJU_ID = 19;
+	public static final int OBAKE_ID = 20;
 	
 	/******************
 	 * EVIDENCE TYPES *
@@ -162,12 +170,25 @@ public class Constants {
 	public static final Ghost MYLING = new Ghost(
 			new ArrayList<>(Arrays.asList(EMF, FINGERPRINTS, WRITING)),
 			MYLING_ID, MYLING_TEXT);
+	public static final Ghost TWINS = new Ghost(
+			new ArrayList<>(Arrays.asList(EMF, FREEZING, BOX)),
+			TWINS_ID, TWINS_TEXT);
+	public static final Ghost ONRYO = new Ghost(
+			new ArrayList<>(Arrays.asList(FREEZING, ORB, BOX)),
+			ONRYO_ID, ONRYO_TEXT);
+	public static final Ghost RAIJU = new Ghost(
+			new ArrayList<>(Arrays.asList(EMF, ORB, DOTS)),
+			RAIJU_ID, RAIJU_TEXT);
+	public static final Ghost OBAKE = new Ghost(
+			new ArrayList<>(Arrays.asList(EMF, FINGERPRINTS, ORB)),
+			OBAKE_ID, OBAKE_TEXT);
 	
 	
 	public static final ArrayList<Ghost> ALL_GHOSTS = new ArrayList<>(
 			Arrays.asList(SPIRIT, WRAITH, PHANTOM, POLTERGEIST, 
 					      BANSHEE, JINN, MARE, REVENANT, SHADE, 
-					      DEMON, YUREI, ONI, YOKAI, HANTU, GORYO, MYLING));
+					      DEMON, YUREI, ONI, YOKAI, HANTU, GORYO, 
+					      MYLING, TWINS, ONRYO, RAIJU, OBAKE));
 
 	/*************************
 	 * LEFT PANEL DIMENSIONS *
@@ -182,7 +203,7 @@ public class Constants {
 	public static final Dimension ACTUAL_SCREEN_SIZE = 
 									Toolkit.getDefaultToolkit().getScreenSize();
 
-	public static final Dimension MAX_SCREEN_SIZE = new Dimension(550, 650);
+	public static final Dimension MAX_SCREEN_SIZE = new Dimension(550, 750);
 	public static final Dimension TOP_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.75));
 	public static final Dimension BOT_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.25));
 	public static final Dimension SMALL_SECONDARY_FRAME_SIZE = new Dimension(180, 125);
@@ -244,12 +265,9 @@ public class Constants {
 	 * DATABASE / SQL *
 	 ******************/
 	
-	/* DEBUG
-	public static final String DATABASE_NAME = "debug.db";
-	public static final String TABLE_NAME= "debug";
-	*/
 	public static final String DATABASE_NAME = "PhasmophobiaJournal.db";
 	public static final String TABLE_NAME= "games";
+	
 	public static final String COLUMN_CORRECT_GHOST = "correct_ghost";
 	public static final String COLUMN_GHOST_TYPE = "ghost_type";
 	public static final String COLUMN_DATE = "date";
