@@ -212,7 +212,7 @@ public class Constants {
 	public static final Dimension TOP_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.75));
 	public static final Dimension BOT_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.25));
 	public static final Dimension SMALL_SECONDARY_FRAME_SIZE = new Dimension(180, 125);
-	public static final Dimension BIG_SECONDARY_FRAME_SIZE = new Dimension(300, 500);
+	public static final Dimension BIG_SECONDARY_FRAME_SIZE = new Dimension(300, 600);
 	
 	/*****************
 	 * BUTTON STATES *

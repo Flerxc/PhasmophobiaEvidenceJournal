@@ -13,7 +13,7 @@ import manager.PhasmophobiaManager;
  * A menu frame showing stats: winrate, amount of games played then the amount 
  * of time each each ghost has ben seen + frequency 
  * @author Francis Leroux-Contant
- * @version 2021-09-17
+ * @version 2021-12-11
  */
 public class StatFrame extends AbstractFrame{
 	
