@@ -14,7 +14,7 @@ import data.Ghost;
 /**
  * Class containing various constants
  * @author Francis Leroux-Contant
- * @version 2021-10-25
+ * @version 2021-12-11
  */
 public class Constants {
 
@@ -54,6 +54,7 @@ public class Constants {
 	public static final String ONRYO_TEXT = "Onryo";
 	public static final String RAIJU_TEXT = "Raiju";
 	public static final String OBAKE_TEXT = "Obake";
+	public static final String MIMIC_TEXT = "The Mimic";
 	
 	
 	/*************
@@ -79,6 +80,7 @@ public class Constants {
 	public static final int ONRYO_ID = 18;
 	public static final int RAIJU_ID = 19;
 	public static final int OBAKE_ID = 20;
+	public static final int MIMIC_ID = 21;
 	
 	/******************
 	 * EVIDENCE TYPES *
@@ -182,13 +184,16 @@ public class Constants {
 	public static final Ghost OBAKE = new Ghost(
 			new ArrayList<>(Arrays.asList(EMF, FINGERPRINTS, ORB)),
 			OBAKE_ID, OBAKE_TEXT);
+	public static final Ghost MIMIC = new Ghost(
+			new ArrayList<>(Arrays.asList(FINGERPRINTS, FREEZING, BOX)),
+			MIMIC_ID, MIMIC_TEXT);
 	
 	
 	public static final ArrayList<Ghost> ALL_GHOSTS = new ArrayList<>(
 			Arrays.asList(SPIRIT, WRAITH, PHANTOM, POLTERGEIST, 
 					      BANSHEE, JINN, MARE, REVENANT, SHADE, 
 					      DEMON, YUREI, ONI, YOKAI, HANTU, GORYO, 
-					      MYLING, TWINS, ONRYO, RAIJU, OBAKE));
+					      MYLING, TWINS, ONRYO, RAIJU, OBAKE, MIMIC));
 
 	/*************************
 	 * LEFT PANEL DIMENSIONS *
@@ -271,7 +276,5 @@ public class Constants {
 	public static final String COLUMN_CORRECT_GHOST = "correct_ghost";
 	public static final String COLUMN_GHOST_TYPE = "ghost_type";
 	public static final String COLUMN_DATE = "date";
-	
-
 	
 }

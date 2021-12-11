@@ -13,7 +13,7 @@ import manager.PhasmophobiaManager;
 /**
  * Right panel containing the list of possible ghosts
  * @author Francis Leroux-Contant
- * @version 2021-09-12
+ * @version 2021-12-11
  */
 public class RightPanel extends JPanel{
 
@@ -25,7 +25,7 @@ public class RightPanel extends JPanel{
 	public RightPanel() {
 		
 		label = new JLabel("");
-		label.setFont(new Font("Arial", Font.PLAIN, 24));
+		label.setFont(new Font("Arial", Font.PLAIN, 22));
 		label.setForeground(Color.BLACK);
 		
 		setLayout(new GridBagLayout());
