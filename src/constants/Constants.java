@@ -14,7 +14,7 @@ import data.Ghost;
 /**
  * Class containing various constants
  * @author Francis Leroux-Contant
- * @version 2021-12-11
+ * @version 2022-06-17
  */
 public class Constants {
 
@@ -55,6 +55,9 @@ public class Constants {
 	public static final String RAIJU_TEXT = "Raiju";
 	public static final String OBAKE_TEXT = "Obake";
 	public static final String MIMIC_TEXT = "The Mimic";
+	public static final String DEOGEN_TEXT = "Deogen";
+	public static final String MOROI_TEXT = "Moroi";
+	public static final String THAYE_TEXT = "Thaye";
 	
 	
 	/*************
@@ -81,6 +84,9 @@ public class Constants {
 	public static final int RAIJU_ID = 19;
 	public static final int OBAKE_ID = 20;
 	public static final int MIMIC_ID = 21;
+	public static final int DEOGEN_ID = 22;
+	public static final int MOROI_ID = 23;
+	public static final int THAYE_ID = 24;
 	
 	/******************
 	 * EVIDENCE TYPES *
@@ -187,13 +193,22 @@ public class Constants {
 	public static final Ghost MIMIC = new Ghost(
 			new ArrayList<>(Arrays.asList(FINGERPRINTS, FREEZING, BOX)),
 			MIMIC_ID, MIMIC_TEXT);
+	public static final Ghost DEOGEN = new Ghost(
+			new ArrayList<>(Arrays.asList(WRITING, BOX, DOTS)),
+			DEOGEN_ID, DEOGEN_TEXT);
+	public static final Ghost MOROI = new Ghost(
+			new ArrayList<>(Arrays.asList(FREEZING, WRITING, BOX)),
+			MOROI_ID, MOROI_TEXT);
+	public static final Ghost THAYE = new Ghost(
+			new ArrayList<>(Arrays.asList(ORB, WRITING, DOTS)),
+			THAYE_ID, THAYE_TEXT);
 	
 	
 	public static final ArrayList<Ghost> ALL_GHOSTS = new ArrayList<>(
 			Arrays.asList(SPIRIT, WRAITH, PHANTOM, POLTERGEIST, 
 					      BANSHEE, JINN, MARE, REVENANT, SHADE, 
 					      DEMON, YUREI, ONI, YOKAI, HANTU, GORYO, 
-					      MYLING, TWINS, ONRYO, RAIJU, OBAKE, MIMIC));
+					      MYLING, TWINS, ONRYO, RAIJU, OBAKE, MIMIC, DEOGEN, MOROI, THAYE));
 
 	/*************************
 	 * LEFT PANEL DIMENSIONS *
@@ -208,7 +223,7 @@ public class Constants {
 	public static final Dimension ACTUAL_SCREEN_SIZE = 
 									Toolkit.getDefaultToolkit().getScreenSize();
 
-	public static final Dimension MAX_SCREEN_SIZE = new Dimension(550, 750);
+	public static final Dimension MAX_SCREEN_SIZE = new Dimension(550, 850);
 	public static final Dimension TOP_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.75));
 	public static final Dimension BOT_PANEL_SIZE = new Dimension(MAX_SCREEN_SIZE.width, (int) (MAX_SCREEN_SIZE.height*0.25));
 	public static final Dimension SMALL_SECONDARY_FRAME_SIZE = new Dimension(180, 125);
